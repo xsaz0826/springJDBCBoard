@@ -174,8 +174,8 @@ body {
 			<a href="/board/boardList" class="btn btn-list">📋 게시판리스트</a>
 
 			<div class="btn-group">
-				<a href="/board/updateForm?no=${board.no}" class="btn btn-edit">✏️
-					수정하기</a> <a href="/board/delete?no=${board.no}" class="btn btn-delete"
+				<a href="/board/updateForm?no=${board.no}" class="btn btn-edit">✏️ 수정하기</a> 
+				<a href="/board/delete?no=${board.no}" class="btn btn-delete"
 					onclick="return confirm('정말 삭제하시겠습니까? ( •́ ̯ •̀ )')">🗑️ 삭제하기</a>
 			</div>
 		</div>

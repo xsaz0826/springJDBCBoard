@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -101,11 +102,11 @@ h1 {
 		<span class="deco-icon" style="top: 20px; left: 20px;">📌</span> <span
 			class="deco-icon" style="top: 20px; right: 20px;">✨</span>
 
-		<h1>게시판 입력성공</h1>
+		<h1>${message}</h1>
 
 		<div class="btn-group">
 			<a href="/board/insertForm"><button class="btn btn-save">게시판등록 🚀</button></a>
-			<button class="btn btn-save">게시판리스트 🚀</button>
+			<a href="/board/boardList"><button class="btn btn-save">게시판리스트 🚀</button></a>
 		</div>
 	</div>
 

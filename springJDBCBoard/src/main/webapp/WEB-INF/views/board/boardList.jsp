@@ -53,7 +53,60 @@ h2 {
 	width: 100%;
 }
 
-/* 테이블 스타일 재구성 */
+/* 🎀 검색창 디자인 (T1 형식을 뽀짝하게 변경) */
+.search-container {
+	display: flex;
+	justify-content: flex-end; /* T1 코드처럼 우측 정렬 */
+	margin-bottom: 20px;
+}
+
+.search-form {
+	display: flex;
+	background: white;
+	border: var(--border-style);
+	border-radius: 15px;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.search-select {
+	font-family: 'Gaegu', cursive;
+	font-size: 18px;
+	background: var(--main-blue);
+	color: var(--text-color);
+	border: none;
+	outline: none;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.search-input {
+	border: none;
+	border-left: var(--border-style);
+	padding: 8px 15px;
+	width: 180px;
+	outline: none;
+	font-size: 14px;
+}
+
+.btn-search {
+	background: var(--main-pink);
+	border: none;
+	border-left: var(--border-style);
+	color: white;
+	font-family: 'Gaegu', cursive;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 0 15px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.btn-search:hover {
+	background: #ff9a94;
+}
+
+/* 테이블 스타일 */
 .bbo-table {
 	width: 100%;
 	border-collapse: collapse;
@@ -87,7 +140,7 @@ h2 {
 	font-weight: bold;
 }
 
-/* 글쓰기 버튼 디자인 */
+/* 글쓰기 버튼 */
 .btn-box {
 	display: flex;
 	justify-content: flex-end;
@@ -139,6 +192,21 @@ h2 {
 
 		<h2>소중한 게시글 목록</h2>
 
+		<div class="search-container">
+			<form action="/board/search" method="get" class="search-form">
+				<select name="searchType" class="search-select">
+					<option value="title"
+						${param.searchType == 'title' ? 'selected' : ''}>TITLE</option>
+					<option value="writer"
+						${param.searchType == 'writer' ? 'selected' : ''}>WRITER</option>
+					<option value="content"
+						${param.searchType == 'content' ? 'selected' : ''}>CONTENT</option>
+				</select> <input type="text" name="keyword" class="search-input"
+					placeholder="Search story..." value="${param.keyword}">
+				<button type="submit" class="btn-search">SEARCH</button>
+			</form>
+		</div>
+
 		<table class="bbo-table">
 			<thead>
 				<tr>
@@ -175,10 +243,12 @@ h2 {
 		</table>
 
 		<div class="btn-box">
-			<a href="/board/insertForm" class="btn-write">✏️ 새 게시글 쓰기</a>
+			<a href="/board/boardList" class="btn-write">✏️ 새로고침</a>
+			<a href="/board/insertForm" class="btn-write">✏️ 게시판 입력</a>
 		</div>
 
-		<div class="footer-msg">💌 CONNECTED TO JDBCBOARD_SEQ.NEXTVAL 💌</div>
+		<div class="footer-msg">💌 [ SYSTEM: CONNECTED TO
+			JDBCBOARD_SEQ.NEXTVAL ] 💌</div>
 	</div>
 
 </body>

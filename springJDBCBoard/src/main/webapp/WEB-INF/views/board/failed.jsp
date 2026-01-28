@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -51,6 +52,43 @@ h1 {
 	width: 100%;
 }
 
+.btn-group {
+	display: flex;
+	gap: 15px;
+	margin-top: 10px;
+}
+
+.btn {
+	flex: 1;
+	padding: 15px;
+	border: 3px solid #5d5d5d;
+	border-radius: 50px;
+	font-family: 'Gaegu', cursive;
+	font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.1s;
+}
+
+.btn-cancel {
+	background-color: #eeeeee;
+}
+
+.btn-save {
+	background-color: var(--main-pink);
+	box-shadow: 0 5px 0px #d49a96;
+}
+
+.btn-save:hover {
+	transform: translateY(2px);
+	box-shadow: 0 3px 0px #d49a96;
+}
+
+.btn-save:active {
+	transform: translateY(5px);
+	box-shadow: none;
+}
+
 /* 아기자기한 데코레이션 */
 .deco-icon {
 	position: absolute;
@@ -64,8 +102,12 @@ h1 {
 		<span class="deco-icon" style="top: 20px; left: 20px;">📌</span> <span
 			class="deco-icon" style="top: 20px; right: 20px;">✨</span>
 
-		<h1>게시판 입력실패</h1>
+		<h1>${message}</h1>
 
+		<div class="btn-group">
+			<a href="/board/insertForm"><button class="btn btn-save">게시판등록 🚀</button></a>
+			<a href="/board/boardList"><button class="btn btn-save">게시판리스트 🚀</button></a>
+		</div>
 	</div>
 
 </body>
